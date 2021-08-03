@@ -74,29 +74,4 @@ public class ClientServiceTest {
         Assert.assertEquals(client.getId(), clientVO.getKey());
         Assert.assertEquals(client.getFirstName(), clientVO.getFirstName());
     }
-
-    @Test
-    public void update() {
-        Client client = new Client();
-
-        client.setId(2L);
-        client.setAge(44L);
-        client.setFirstName("Juares");
-        client.setLastName("Martini");
-
-        doReturn(client).when(clientRepositoryMock).findById(2L);
-
-        ClientVO clientVOToUpdate = new ClientVO();
-
-        clientVOToUpdate.setAge(45L);
-        clientVOToUpdate.setFirstName("Juaress");
-        clientVOToUpdate.setLastName("Martinii");
-
-        doReturn(clientVOToUpdate).when(clientRepositoryMock).save(ArgumentMatchers.any(Client.class));
-
-        ClientVO clientVO = this.clientService.create(clientVOToUpdate);
-
-        Assert.assertEquals(client.getId(), clientVO.getKey());
-        Assert.assertEquals(client.getFirstName(), clientVO.getFirstName());
-    }
 }

@@ -19,15 +19,18 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 // @CrossOrigin
 @Api(tags = {"Client Resource"})
 @RestController
-@RequestMapping(value="/api/v1/clients")
+@RequestMapping(value="/v1/clients")
 public class ClientControllerV1 {
     @Autowired
     private ClientService clientService;
 
     @ApiOperation(value="List Clients")
     @GetMapping(produces = {"application/json", "application/xml", "application/x-yaml"})
-    public List<ClientVO> index() {
-        List<ClientVO> clients = clientService.findAll();
+    public List<ClientVO> index(
+            @RequestParam(name = "page", defaultValue = "0") String page,
+            @RequestParam(name = "size", defaultValue = "10") String size
+    ) {
+        List<ClientVO> clients = clientService.findAll(Integer.parseInt(page), Integer.parseInt(size));
         clients.forEach(p -> p.add(linkTo(methodOn(ClientControllerV1.class).show(p.getKey())).withSelfRel()));
 
         return clients;
@@ -53,7 +56,7 @@ public class ClientControllerV1 {
     }
 
     @ApiOperation(value="Update Client")
-    @PutMapping(value = "/{id}", produces = { "application/json", "application/xml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
+    @PutMapping(value = "/{id}", produces = { "application/json", "application/xml", "application/x-yaml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
     public ClientVO update(@PathVariable("id") Long id, @RequestBody ClientVO client) throws NotFoundException {
         ClientVO clientVo = clientService.update(id, client);
         clientVo.add(linkTo(methodOn(ClientControllerV1.class).show(clientVo.getKey())).withSelfRel());

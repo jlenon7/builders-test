@@ -24,8 +24,8 @@ public class DozerAdapterTest {
 
         Assert.assertEquals(Long.valueOf(0L), output.getKey());
         Assert.assertEquals(Long.valueOf(0L), output.getAge());
-        Assert.assertEquals("First Name Test0", output.getFirstName());
-        Assert.assertEquals("Last Name Test0", output.getLastName());
+        Assert.assertEquals("First Name Test Entity0", output.getFirstName());
+        Assert.assertEquals("Last Name Test Entity0", output.getLastName());
     }
 
     @Test
@@ -35,22 +35,22 @@ public class DozerAdapterTest {
 
         Assert.assertEquals(Long.valueOf(0L), outputZero.getKey());
         Assert.assertEquals(Long.valueOf(0L), outputZero.getAge());
-        Assert.assertEquals("First Name Test0", outputZero.getFirstName());
-        Assert.assertEquals("Last Name Test0", outputZero.getLastName());
+        Assert.assertEquals("First Name Test Entity0", outputZero.getFirstName());
+        Assert.assertEquals("Last Name Test Entity0", outputZero.getLastName());
 
         ClientVO outputSeven = outputList.get(7);
 
         Assert.assertEquals(Long.valueOf(7L), outputSeven.getKey());
         Assert.assertEquals(Long.valueOf(7L), outputSeven.getAge());
-        Assert.assertEquals("First Name Test7", outputSeven.getFirstName());
-        Assert.assertEquals("Last Name Test7", outputSeven.getLastName());
+        Assert.assertEquals("First Name Test Entity7", outputSeven.getFirstName());
+        Assert.assertEquals("Last Name Test Entity7", outputSeven.getLastName());
 
         ClientVO outputTwelve = outputList.get(12);
 
         Assert.assertEquals(Long.valueOf(12L), outputTwelve.getKey());
         Assert.assertEquals(Long.valueOf(12L), outputTwelve.getAge());
-        Assert.assertEquals("First Name Test12", outputTwelve.getFirstName());
-        Assert.assertEquals("Last Name Test12", outputTwelve.getLastName());
+        Assert.assertEquals("First Name Test Entity12", outputTwelve.getFirstName());
+        Assert.assertEquals("Last Name Test Entity12", outputTwelve.getLastName());
     }
 
     @Test
@@ -59,8 +59,8 @@ public class DozerAdapterTest {
 
         Assert.assertEquals(Long.valueOf(0L), output.getId());
         Assert.assertEquals(Long.valueOf(0L), output.getAge());
-        Assert.assertEquals("First Name Test0", output.getFirstName());
-        Assert.assertEquals("Last Name Test0", output.getLastName());
+        Assert.assertEquals("First Name Test EntityVO0", output.getFirstName());
+        Assert.assertEquals("Last Name Test EntityVO0", output.getLastName());
     }
 
     @Test
@@ -70,21 +70,21 @@ public class DozerAdapterTest {
 
         Assert.assertEquals(Long.valueOf(0L), outputZero.getId());
         Assert.assertEquals(Long.valueOf(0L), outputZero.getAge());
-        Assert.assertEquals("First Name Test0", outputZero.getFirstName());
-        Assert.assertEquals("Last Name Test0", outputZero.getLastName());
+        Assert.assertEquals("First Name Test EntityVO0", outputZero.getFirstName());
+        Assert.assertEquals("Last Name Test EntityVO0", outputZero.getLastName());
 
         Client outputSeven = outputList.get(7);
 
         Assert.assertEquals(Long.valueOf(7L), outputSeven.getId());
-        Assert.assertEquals(Long.valueOf(7L), outputZero.getAge());
-        Assert.assertEquals("First Name Test7", outputSeven.getFirstName());
-        Assert.assertEquals("Last Name Test7", outputSeven.getLastName());
+        Assert.assertEquals(Long.valueOf(7L), outputSeven.getAge());
+        Assert.assertEquals("First Name Test EntityVO7", outputSeven.getFirstName());
+        Assert.assertEquals("Last Name Test EntityVO7", outputSeven.getLastName());
 
         Client outputTwelve = outputList.get(12);
 
         Assert.assertEquals(Long.valueOf(12L), outputTwelve.getId());
-        Assert.assertEquals(Long.valueOf(12L), outputZero.getAge());
-        Assert.assertEquals("First Name Test12", outputTwelve.getFirstName());
-        Assert.assertEquals("Last Name Test12", outputTwelve.getLastName());
+        Assert.assertEquals(Long.valueOf(12L), outputTwelve.getAge());
+        Assert.assertEquals("First Name Test EntityVO12", outputTwelve.getFirstName());
+        Assert.assertEquals("Last Name Test EntityVO12", outputTwelve.getLastName());
     }
 }

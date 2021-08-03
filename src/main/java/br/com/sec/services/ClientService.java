@@ -6,6 +6,8 @@ import br.com.sec.adapters.DozerAdapter;
 import br.com.sec.models.Client;
 import br.com.sec.models.vo.ClientVO;
 import br.com.sec.repositories.ClientRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import br.com.sec.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +18,13 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     public ClientVO findById(Long id) {
-        var entity = clientRepository.findById(id).orElseThrow(() -> new NotFoundException("No records found for this ID"));
+        Client entity = clientRepository.findById(id).orElseThrow(() -> new NotFoundException("No records found for this ID"));
 
         return DozerAdapter.parseObject(entity, ClientVO.class);
     }
 
     public ClientVO create(ClientVO client) {
-        var entity = DozerAdapter.parseObject(client, Client.class);
+        Client entity = DozerAdapter.parseObject(client, Client.class);
         System.out.println(entity);
 
         return DozerAdapter.parseObject(clientRepository.save(entity), ClientVO.class);
@@ -42,7 +44,7 @@ public class ClientService {
         clientRepository.delete(DozerAdapter.parseObject(findById(id), Client.class));
     }
 
-    public List<ClientVO> findAll() {
-        return DozerAdapter.parseListObjects(clientRepository.findAll(), ClientVO.class);
+    public List<ClientVO> findAll(Integer page, Integer size) {
+        return DozerAdapter.parsePageObjects(clientRepository.findAll(PageRequest.of(page, size)), ClientVO.class);
     }
 }
