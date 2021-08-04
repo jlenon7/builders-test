@@ -8,6 +8,7 @@ import br.com.sec.models.vo.ClientVO;
 import br.com.sec.repositories.ClientRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import br.com.sec.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class ClientService {
         clientRepository.delete(DozerAdapter.parseObject(findById(id), Client.class));
     }
 
-    public List<ClientVO> findAll(Integer page, Integer size) {
-        return DozerAdapter.parsePageObjects(clientRepository.findAll(PageRequest.of(page, size)), ClientVO.class);
+    public List<ClientVO> findAll(Integer page, Integer size, Long sinceAge, Long maxAge) {
+        return DozerAdapter.parsePageObjects(clientRepository.findAllBetween(sinceAge, maxAge, PageRequest.of(page, size)), ClientVO.class);
     }
 }

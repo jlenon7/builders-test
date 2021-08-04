@@ -28,9 +28,11 @@ public class ClientControllerV1 {
     @GetMapping(produces = {"application/json", "application/xml", "application/x-yaml"})
     public List<ClientVO> index(
             @RequestParam(name = "page", defaultValue = "0") String page,
-            @RequestParam(name = "size", defaultValue = "10") String size
+            @RequestParam(name = "size", defaultValue = "10") String size,
+            @RequestParam(name = "since_age", defaultValue = "0") String sinceAge,
+            @RequestParam(name = "max_age", defaultValue = "9999") String maxAge
     ) {
-        List<ClientVO> clients = clientService.findAll(Integer.parseInt(page), Integer.parseInt(size));
+        List<ClientVO> clients = clientService.findAll(Integer.parseInt(page), Integer.parseInt(size), Long.parseLong(sinceAge), Long.parseLong(maxAge));
         clients.forEach(p -> p.add(linkTo(methodOn(ClientControllerV1.class).show(p.getKey())).withSelfRel()));
 
         return clients;
