@@ -8,7 +8,7 @@
     </parent>
 
     <groupId>br.com.sec</groupId>
-    <artifactId>spring-demo-intellij</artifactId>
+    <artifactId>builders-test</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 

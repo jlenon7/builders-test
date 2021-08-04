@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  builders-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: builders-test
+    volumes:
+      - ./:/process
+    ports:
+      - "8085:8080"
+    networks:
+      - builders-network
+    restart: on-failure
+
+  builders-db:
+    container_name: builders-db
+    image: mysql
+    ports:
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: "builders_test"
+      MYSQL_PASSWORD: "bancodedados"
+      MYSQL_ROOT_PASSWORD: "bancodedados"
+    networks:
+      - builders-network
+    restart: on-failure
+
+  adminer:
+    image: adminer
+    container_name: builders-adminer
+    restart: on-failure
+    ports:
+      - 8081:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: builders-db
+    networks:
+      - builders-network
+    depends_on:
+      - builders-db
+
+networks:
+  builders-network:
+    external:
+      name: builders-network
