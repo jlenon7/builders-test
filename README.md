@@ -48,6 +48,8 @@ Send `Content-Type: application/xml` Receives `Accept: application/x-yaml`
 
 Send `Content-Type: application/x-yaml` Receives `Accept: application/json`
 
+etc...
+
 ---
 
 ## Running project local

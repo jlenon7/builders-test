@@ -20,3 +20,22 @@ jobs:
           name: ${{ env.REGISTRY_REPO }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+  deploy:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: get-credentials
+        uses: google-github-actions/get-gke-credentials@main
+        with:
+          cluster_name: builders-test-cluster
+          location: us-central1-c
+          credentials: ${{ secrets.GCLOUD_SERVICE_KEY }}
+
+      - name: Get the Tag
+        id: get_tag_name
+        run: echo ::set-output name=GIT_TAG_NAME::${GITHUB_SHA}
+
+      - id: update_project
+        run: kubectl rollout restart deployment/builders-test-api

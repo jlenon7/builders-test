@@ -1,0 +1,11 @@
+apiVersion: v1 # Versão da api
+kind: Service ## tipo de serviço
+metadata: ## dados que caracterizam o serviço
+  name: builders-test-api
+spec: ## especificação do serviço
+  type: LoadBalancer ## Tipo de serviço [ClusterIp,NodePort, LoadBalancer]
+  selector: ## Pega o deployment que possue essa label
+    app: builders-test-api
+  ports:
+    - port: 80 ## Porta que vai ser exposta
+      targetPort: 8080 ## porta do container

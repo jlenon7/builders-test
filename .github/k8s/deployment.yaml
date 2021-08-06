@@ -1,0 +1,22 @@
+apiVersion: apps/v1 ## Versão da api
+kind: Deployment ## tipo de serviço
+metadata: ## dadps referentes ao deployment como nome
+  name: builders-test-api
+  labels:
+    app: builders-test-api
+spec: ## especificações do deployment, principalmente o selector que vai selecionar qual pod vai acoplar
+  replicas: 3
+  selector:
+    matchLabels: ## Qual pod vai ser selecionado que possue o mesmo app
+      app: builders-test-api
+  ## estrutura do pod
+  template:
+    metadata:
+      labels:
+        app: builders-test-api ## Nome do pod
+    spec:
+      containers:
+        - name: nginx-pod-name ## nome do container
+          image: jlenon7/builders-test:latest # imagem
+          ports:
+            - containerPort: 8080 ## A porta que o container irá rodar docker run -p 8080:80 (referente a porta interna do container)
