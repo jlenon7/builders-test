@@ -19,7 +19,7 @@
 
 ## PROJECT
 
-> Access the project [CLICKING HERE]('http://joao.devopstests.com/api')
+> Access the project [CLICKING HERE](http://joao.devopstests.com/api)
 
 ## ENDPOINTS
 
