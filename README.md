@@ -19,12 +19,12 @@
 
 ## PROJECT
 
-> Access the project clicking here [Click here]('http://34.133.105.27/api')
+> Access the project [CLICKING HERE]('http://joao.devopstests.com/api')
 
 ## ENDPOINTS
 
 > All endpoints are well documented within the [InsomniaCollection.json](https://github.com/jlenon7/builders-test/blob/master/.github/InsomniaCollection.json) file
-> and in [Swagger](http://34.133.105.27/api/swagger-ui.html)
+> and in [Swagger](http://joao.devopstests.com/swagger-ui.html)
 
 | METHOD    | URI                    | NAME               |
 | --------- | ---------------------  | -----------------  |
