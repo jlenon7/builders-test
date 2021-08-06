@@ -19,7 +19,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 // @CrossOrigin
 @Api(tags = {"Client Resource"})
 @RestController
-@RequestMapping(value="/v1/clients")
+@RequestMapping(value="/api/v1/clients")
 public class ClientControllerV1 {
     @Autowired
     private ClientService clientService;

@@ -12,7 +12,7 @@ import java.io.IOException;
 @RequestMapping(value="/")
 public class WelcomeController {
     @ApiOperation(value="Home")
-    @GetMapping(value = "/", produces = { "application/json", "application/xml", "application/x-yaml" })
+    @GetMapping(value = {"/", "/api"}, produces = { "application/json", "application/xml", "application/x-yaml" })
     public Greeting home() throws IOException {
         return new Greeting("/", "Welcome to Builder Test API");
     }

@@ -17,10 +17,14 @@
 
 <img src=".github/images/builders.png" width="200px" align="right" hspace="30px" vspace="100px">
 
+## PROJECT
+
+> Access the project clicking here [Click here]('http://34.133.105.27/api')
+
 ## ENDPOINTS
 
 > All endpoints are well documented within the [InsomniaCollection.json](https://github.com/jlenon7/builders-test/blob/master/.github/InsomniaCollection.json) file
-> and in [Swagger](http://localhost:8085/api/swagger-ui.html)
+> and in [Swagger](http://34.133.105.27/api/swagger-ui.html)
 
 | METHOD    | URI                    | NAME               |
 | --------- | ---------------------  | -----------------  |
