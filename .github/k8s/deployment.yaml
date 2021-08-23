@@ -17,6 +17,6 @@ spec: ## especificações do deployment, principalmente o selector que vai selec
     spec:
       containers:
         - name: nginx-pod-name ## nome do container
-          image: jlenon7/builders-test:latest # imagem
+          image: jlenon7/builders-test:production # imagem
           ports:
             - containerPort: 8080 ## A porta que o container irá rodar docker run -p 8080:80 (referente a porta interna do container)
